@@ -5,7 +5,7 @@ var mode = 0;
 
 
 function setup() {
-  createCanvas(1200, 600);
+  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
@@ -14,33 +14,29 @@ function draw() {
       background(255, 50);
       stroke(0);
       noFill();
-      var initVal = (frameCount * 0.00005) % 1;
-      //var initVal = map(mouseY, 0, height, 0, 1);
-      var index = Math.floor(map(mouseX, 0, width, 2, 14));
+      var initVal = ( (frameCount * 0.0002) + map(mouseX, 0, width, 0, 1) ) % 1;
       beginShape();
       for (var x = 0; x < width; x++) {
-        var growth = map(x, 0, width, 2., 4.);
-        var points = logistic(initVal, growth, 15);
-        curveVertex(x, (1 - points[index]) * height);
+        var growth = map(x, 0, width, 2.8, 4.);
+        var points = logistic(initVal, growth, 10);
+        curveVertex(x, (1 - points[9]) * height);
       }
       endShape();
       caption(initVal);
       break;
     case 1:
-      background(255);
       stroke(0, 20);
       noFill();
       var points;
-      var initVal;
-      var index = Math.floor(map(mouseX, 0, width, 2, 14));
+      var initVal = random(0, 1.);
       for (var x = 0; x < width; x++) {
-        var growth = map(x, 0, width, 2., 4.);
-        initVal = points === undefined ? random(0, 1.) : points[199];
-        points = logistic(initVal, growth, 200);
-        for (var index = 0; index < 200; index += 0.5) {
+        var growth = map(x, 0, width, 2.8, 4.);
+        points = logistic(initVal, growth, 20);
+        for (var index = 10; index < 20; index += 1.) {
           point(x, (1 - points[index]) * height);
         }
       }
+      caption(initVal);
       break;
   }
 }
@@ -70,4 +66,7 @@ function caption(val) {
 
 function mouseClicked() {
   mode = (mode + 1) % 2;
+  if (mode === 1) {
+    background(255);
+  }
 }

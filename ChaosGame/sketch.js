@@ -7,7 +7,7 @@ var rules = [
 ];
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(windowWidth, windowHeight);
   Polygon = function(edges, radius) {
     this.edges = edges;
     this.vertices = [];

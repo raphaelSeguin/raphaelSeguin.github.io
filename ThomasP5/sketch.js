@@ -10,7 +10,7 @@ var hertz;
 
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(windowWidth, windowHeight);
   hertz = TWO_PI / 60000;
 }
 
