@@ -15,6 +15,7 @@ function setup() {
 }
 
 function draw() {
+  push();
   if (!still) {
     b = map(mouseX, 0, width, 0.001, 0.25);
     dt = map(mouseY, 0, height, 0.001, 0.5);
@@ -47,6 +48,7 @@ function draw() {
     curveVertex(x * zoom, y * zoom);
   }
   endShape();
+  pop();
   text("Space bar toggles rotation", 20, 20);
   text("Click toggles drawing", 20, 30);
 }

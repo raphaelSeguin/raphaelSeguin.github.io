@@ -95,7 +95,6 @@ function draw() {
   poly.display();
   poly.addPoints(pointsPerFrame);
   caption();
-  text("Click to generate new shape", 20, 20);
 }
 
 function caption() {
@@ -103,7 +102,8 @@ function caption() {
   noStroke();
   rect(0, 0, 200, 50);
   fill(0);
-  text("frame rate : " + frameRate().toFixed(2), 10, 20);
-  text("points : " + frameCount * pointsPerFrame, 10, 30);
-  text("edges : " + edges, 10, 40);
+  text("Click to generate new shape", 20, 20);
+  text("frame rate : " + frameRate().toFixed(2), 10, 30);
+  text("points : " + frameCount * pointsPerFrame, 10, 40);
+  text("edges : " + edges, 10, 50);
 }

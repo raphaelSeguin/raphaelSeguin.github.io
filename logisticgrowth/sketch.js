@@ -53,7 +53,6 @@ function draw() {
             }
             break;
     }
-    text("Click to switch mode", 20, 20);
 }
 
 function logistic(init, growth, size) {
@@ -73,10 +72,11 @@ function mapLog(src, smin, smax, dmin, dmax) {
 function caption(val) {
     fill(255, 255);
     noStroke();
-    rect(0, 0, 200, 50);
+    rect(0, 0, 200, 80);
     fill(0);
-    text("init value : " + val.toFixed(5), 20, 20);
-    text("frame rate : " + frameRate().toFixed(2), 20, 40);
+    text("Click to switch modes", 20, 20);
+    text("init value : " + val.toFixed(5), 20, 40);
+    text("frame rate : " + frameRate().toFixed(2), 20, 60);
 }
 
 function mouseClicked() {
