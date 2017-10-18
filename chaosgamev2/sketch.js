@@ -48,7 +48,7 @@ function createChaosGame(edges) {
   chaosGame.vertices = [];
   // premier point [0, 0] // éventuellement à tirer au sort ...
   chaosGame.currentPoint = [0., 0.];
-  // les regles ... 
+  // les regles ...
   chaosGame.rules = [];
   // mémoire
   chaosGame.pastVertexNumbers = [];
@@ -101,7 +101,7 @@ function createChaosGame(edges) {
   }
   chaosGame.setRules = function(rules) {
     chaosGame.rules = rules;
-    // remplis le tabeau de mémoire 
+    // remplis le tabeau de mémoire
     for (var i = 0; i < chaosGame.rules.length; i++) {
       chaosGame.pastVertexNumbers.push(-1);
     }
@@ -158,7 +158,7 @@ function among(n, total) {
 function init() {
   console.log("INIT");
   cg = createChaosGame(floor(random(6, 9)));
-  //cg.setRules(rules);
   cg.setRandomRules();
   cg.getRules();
+  fr = 0;
 }
