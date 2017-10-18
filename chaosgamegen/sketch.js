@@ -1,3 +1,4 @@
+var fr;
 var Polygon;
 var poly;
 var pointsPerFrame = 500;
@@ -9,7 +10,6 @@ var rules = [
 function setup() {
   createCanvas(windowWidth, windowHeight);
   pixelDensity(2.0);
-  //frameRate(1);
   Polygon = function(edges, radius) {
     this.edges = edges;
     this.vertices = [];
@@ -36,7 +36,7 @@ function setup() {
     }
     this.display = function() {
       push();
-      stroke(0);
+      stroke(245);
       noFill();
       translate(width / 2, height / 2);
       beginShape();
@@ -100,10 +100,15 @@ function draw() {
 function caption() {
   fill(255);
   noStroke();
-  rect(0, 0, 200, 50);
+  rect(0, 0, 200, 70);
   fill(0);
+  fr =  frameCount % 20 === 1 ? frameRate().toFixed(0) : fr;
   text("Click to generate new shape", 20, 20);
-  text("frame rate : " + frameRate().toFixed(2), 10, 30);
-  text("points : " + frameCount * pointsPerFrame, 10, 40);
-  text("edges : " + edges, 10, 50);
+  text("frame rate : " + fr, 20, 40);
+  text("points : " + frameCount * pointsPerFrame, 20, 60);
+}
+
+function mouseClick() {
+  // nombre de faces 4 - 8
+  // rules 
 }
