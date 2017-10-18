@@ -47,6 +47,8 @@ function draw() {
     curveVertex(x * zoom, y * zoom);
   }
   endShape();
+  text("Space bar toggles rotation", 20, 20);
+  text("Click toggles drawing", 20, 30);
 }
 
 function thomas(vec, b, dt) {

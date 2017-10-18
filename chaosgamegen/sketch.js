@@ -95,6 +95,7 @@ function draw() {
   poly.display();
   poly.addPoints(pointsPerFrame);
   caption();
+  text("Click to generate new shape", 20, 20);
 }
 
 function caption() {

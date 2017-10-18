@@ -53,6 +53,7 @@ function draw() {
             }
             break;
     }
+    text("Click to switch mode", 20, 20);
 }
 
 function logistic(init, growth, size) {
