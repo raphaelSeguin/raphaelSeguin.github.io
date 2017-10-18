@@ -30,7 +30,7 @@ function caption() {
   fr = frameCount % 20 === 1 ? frameRate().toFixed(0) : fr;
   text("Click to generate new shape", 20, 20);
   text("frame rate : " + fr, 20, 40);
-  text("points : " + frameCount * pointsPerFrame, 20, 60);
+  text("points : " + cg.getNumberOfPoints(), 20, 60);
 }
 
 function mouseReleased() {
@@ -48,6 +48,8 @@ function createChaosGame(edges) {
   chaosGame.vertices = [];
   // premier point [0, 0] // éventuellement à tirer au sort ...
   chaosGame.currentPoint = [0., 0.];
+  // nombre de points ajoutés
+  chaosGame.numberOfPoints = 0;
   // les regles ...
   chaosGame.rules = [];
   // mémoire
@@ -88,6 +90,7 @@ function createChaosGame(edges) {
       point(chaosGame.currentPoint[0] * radius, chaosGame.currentPoint[1] * radius);
     }
     pop();
+    chaosGame.numberOfPoints += n;
   }
   chaosGame.checkRules = function(n) {
     for (var i = 0; i < chaosGame.pastVertexNumbers.length; i++) {
@@ -140,6 +143,9 @@ function createChaosGame(edges) {
     res += " ]";
     console.log(res);
   }
+  chaosGame.getNumberOfPoints = function() {
+    return chaosGame.numberOfPoints;
+  }
   return chaosGame;
 }
 
@@ -160,5 +166,5 @@ function init() {
   cg = createChaosGame(floor(random(6, 9)));
   cg.setRandomRules();
   cg.getRules();
-  fr = 0;
+  frameCount = 0;
 }
