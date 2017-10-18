@@ -4,7 +4,7 @@ var dt = 0.005;
 var points = 2000;
 var still = false;
 var rotateFlag = true;
-var zoom = 40.;
+var zoom = 50.;
 var xrot = yrot = zrot = 0;
 var hertz;
 
@@ -20,11 +20,10 @@ function draw() {
     b = map(mouseX, 0, width, 0.001, 0.25);
     dt = map(mouseY, 0, height, 0.001, 0.5);
     background(255);
-    stroke(255, 0, 0);
+    stroke(0);
   } else {
-    stroke(255, 0, 0, 30);
+    stroke(0, 20);
   }
-
   noFill();
   translate(width / 2, height / 2);
   var positions = [];
@@ -49,8 +48,14 @@ function draw() {
   }
   endShape();
   pop();
+  fill(255);
+  noStroke(0);
+  rect(0, 0, 200, 80);
+  fill(0);
   text("Space bar toggles rotation", 20, 20);
-  text("Click toggles drawing", 20, 30);
+  text("Click toggles drawing", 20, 40);
+  text("mouse X changes b", 20, 60);
+  text("mouse Y changes dt", 20, 80);
 }
 
 function thomas(vec, b, dt) {
