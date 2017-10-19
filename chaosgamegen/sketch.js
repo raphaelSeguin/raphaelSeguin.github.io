@@ -111,11 +111,11 @@ function createChaosGame(edges) {
   }
   chaosGame.setRandomRules = function(depth) {
     var rndRules = [];
-    var depth = floor(random(chaosGame.edges/2));
+    var depth = floor(random(chaosGame.edges / 2 - 1) + 1);
     console.log("depth : " + depth);
     for (var i = 0; i < depth; i++) {
-      var constraints = floor(random(chaosGame.edges - 2));
-      rndRules.push(among(constraints, chaosGame.edges -1))
+      var constraints = floor(random(chaosGame.edges / 2 - 1) + 1);
+      rndRules.push(among(constraints, chaosGame.edges - 1))
     }
     chaosGame.setRules(rndRules);
   }
