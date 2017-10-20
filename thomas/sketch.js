@@ -11,7 +11,7 @@ var hertz;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  hertz = TWO_PI / 60000;
+  hertz = TWO_PI / 60;
 }
 
 function draw() {
@@ -31,12 +31,12 @@ function draw() {
     pos = thomas(pos, b, dt);
     positions[i] = pos;
   }
+  if (rotateFlag) {
+    xrot += 0.1 * hertz;
+    yrot += 0.07 * hertz;
+    zrot += 0.03 * hertz;
+  }
   for (i = 0; i < positions.length; i++) {
-    if (rotateFlag) {
-      xrot += 0.1 * hertz;
-      yrot += 0.07 * hertz;
-      zrot += 0.03 * hertz;
-    }
     positions[i] = rotator(positions[i], xrot, yrot, zrot);
   }
   beginShape();
@@ -54,8 +54,8 @@ function draw() {
   fill(0);
   text("Space bar toggles rotation", 20, 20);
   text("Click toggles drawing", 20, 40);
-  text("mouse X changes b", 20, 60);
-  text("mouse Y changes dt", 20, 80);
+  text("mouse X changes b = " + b.toFixed(3), 20, 60);
+  text("mouse Y changes dt = " + dt.toFixed(3), 20, 80);
 }
 
 function thomas(vec, b, dt) {
